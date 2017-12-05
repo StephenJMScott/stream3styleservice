@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, HttpResponseRedirect
 from django.contrib import messages, auth
-from .forms import UserLoginForm, UserRegistrationForm, PersonalForm
+from .forms import UserLoginForm, UserRegistrationForm
 from django.contrib.auth.decorators import login_required
 
 def get_index(request):
@@ -43,11 +43,9 @@ def login(request):
 def register(request):
     if request.method=="POST":
         form = UserRegistrationForm(request.POST)
-        personalform= PersonalForm()
         
-        if form.is_valid() and personalform.is_valid():
+        if form.is_valid():
             form.save()
-            personalform.save()
             
             
             user = auth.authenticate(username=form.cleaned_data['username'],
@@ -58,10 +56,9 @@ def register(request):
                 return redirect('profile.html')
     else:
         form = UserRegistrationForm()
-        personalform= PersonalForm()
 
     
-    return render(request, "register.html", {'form':form, 'personalform':form})
+    return render(request, "register.html", {'form':form})
  
 @login_required() 
 def profile(request):
