@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.conf.urls import url
 from accounts import urls as accounts_urls
 from products import urls as product_urls
+from cart import urls as cart_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include(accounts_urls)),
     url(r'^products/', include(products_urls)),
+    url(r'^cart/', include(cart_urls)),
 ]

@@ -1,3 +1,4 @@
 Django==2.0
+dj-database-url==0.4.2
 django-forms-bootstrap==3.1.0
 pytz==2017.3
