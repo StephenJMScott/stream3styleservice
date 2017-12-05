@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+
+{% block content %}
+
+<div class = "container"> <!--Start of actual Profile Container -->
+
+    <div class = "row"> <!-- Top Row, Username, Location and Profile Pic in here -->
+        <div class = "col-sm-3"><!--Profile Pic-->
+            <img src="{{ MEDIA_URL }}{{ request.user.profile.image }}"
+                                                        style="width:200px; height: 200px; background-color: #12ABB2; color: #ffffff;">
+            
+        </div>
+        
+        <div class = "col-sm-9"><!--Username and Location -->
+            
+            <h2>{{user.username}}</h2>
+            <p>{{user.location}}</p>
+            
+            
+        </div>
+        
+    </div><!-- End of Profile Pic row -->
+    
+    <div class = "row"> <!--Subscriptions and stylists-->
+    </div> <!-- End of Subs and Stylists-->
+    
+    <div class = "row"><!--Personality Form in here-->
+    </div> <!-- End of Form -->
+    
+    
+</div> <!--End of Profile Container -->
+    
+    
+ 
+    
+    
+{% endblock %}

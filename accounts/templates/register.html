@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+
+{% block content %}
+
+<h1>Create Your Account </h1>
+ <form role='form' method="POST" id="regform">
+        {% csrf_token %}
+       <div class = "form-group">
+         {{form | as_bootstrap }}
+        </div>
+        <button type="submit">Register</button>
+    </form>
+    
+{% endblock content %}
